@@ -154,3 +154,34 @@ var averageChange = calculateAverageChange(finances);
 
 // Output the average change in Profit/Losses
 console.log("Average change:-", averageChange);
+
+// Function to find the greatest increase in Profit/Losses and corresponding date
+function findGreatestIncrease(data) {
+  var greatestIncrease = 0;
+  var increaseDate = '';
+  
+  // Loop through the dataset to calculate increases
+  for (var i = 1; i < data.length; i++) {
+      var currentMonthProfit = data[i][1];
+      var previousMonthProfit = data[i - 1][1];
+      var change = currentMonthProfit - previousMonthProfit;
+
+      // Check if the change is greater than the current greatest increase
+      if (change > greatestIncrease) {
+          greatestIncrease = change;
+          increaseDate = data[i][0];
+      }
+  }
+
+  return {
+      date: increaseDate,
+      amount: greatestIncrease
+  };
+}
+
+// Find the greatest increase in Profit/Losses
+var greatestIncrease = findGreatestIncrease(finances);
+
+// Output the greatest increase in Profit/Losses and the corresponding date
+console.log("Greatest increase in Profit/Losses:", greatestIncrease.amount);
+console.log("Date of greatest increase:", greatestIncrease.date);
