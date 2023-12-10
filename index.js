@@ -153,7 +153,7 @@ function calculateAverageChange(data) {
 var averageChange = calculateAverageChange(finances);
 
 // Output the average change in Profit/Losses
-console.log("Average change:-", averageChange);
+console.log("Average change:-", averageChange.toFixed(2));
 
 // Function to find the greatest increase in Profit/Losses and corresponding date
 function findGreatestIncrease(data) {
