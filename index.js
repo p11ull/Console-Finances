@@ -129,3 +129,28 @@ var netTotalProfitLoss = calculateNetProfitLoss(finances);
 
 // Output the net total Profit/Losses
 console.log("Net total Profit/Losses over the entire period:", netTotalProfitLoss);
+
+// Function to calculate the average of changes in Profit/Losses
+function calculateAverageChange(data) {
+  var totalChange = 0;
+  var numMonths = data.length;
+  
+  // Calculate changes and sum them up
+  for (var i = 1; i < numMonths; i++) {
+      var currentMonthProfit = data[i][1];
+      var previousMonthProfit = data[i - 1][1];
+      var change = currentMonthProfit - previousMonthProfit;
+      totalChange += change;
+  }
+
+  // Calculate the average change
+  var averageChange = totalChange / (numMonths - 1);
+
+  return averageChange;
+}
+
+// Calculate the average change in Profit/Losses
+var averageChange = calculateAverageChange(finances);
+
+// Output the average change in Profit/Losses
+console.log("Average change:-", averageChange);
