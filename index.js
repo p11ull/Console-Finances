@@ -185,3 +185,34 @@ var greatestIncrease = findGreatestIncrease(finances);
 // Output the greatest increase in Profit/Losses and the corresponding date
 console.log("Greatest increase in Profit/Losses:", greatestIncrease.amount);
 console.log("Date of greatest increase:", greatestIncrease.date);
+
+// Function to find the greatest decrease in Profit/Losses and corresponding date
+function findGreatestDecrease(data) {
+  var greatestDecrease = 0;
+  var decreaseDate = '';
+
+  // Loop through the dataset to calculate decreases
+  for (var i = 1; i < data.length; i++) {
+      var currentMonthProfit = data[i][1];
+      var previousMonthProfit = data[i - 1][1];
+      var change = currentMonthProfit - previousMonthProfit;
+
+      // Check if the change is less than the current greatest decrease
+      if (change < greatestDecrease) {
+          greatestDecrease = change;
+          decreaseDate = data[i][0];
+      }
+  }
+
+  return {
+      date: decreaseDate,
+      amount: greatestDecrease
+  };
+}
+
+// Find the greatest decrease in Profit/Losses
+var greatestDecrease = findGreatestDecrease(finances);
+
+// Output the greatest decrease in Profit/Losses and the corresponding date
+console.log("Greatest decrease in Profit/Losses:", greatestDecrease.amount);
+console.log("Date of greatest decrease:", greatestDecrease.date);
