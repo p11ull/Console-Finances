@@ -86,3 +86,28 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+// Function to calculate total number of months in the dataset
+function calculateTotalMonths(data) {
+  // Create an object to store unique months and years
+  var uniqueMonths = {};
+
+  // Loop through each date in the dataset
+  data.forEach(function(entry) {
+      var dateParts = entry[0].split('-'); // Split date into month and year
+      var yearMonth = dateParts[1] + '-' + dateParts[0]; // Format: 'YYYY-MM'
+
+      // Add the year and month as a key to the uniqueMonths object
+      uniqueMonths[yearMonth] = true;
+  });
+
+  // Calculate the total number of unique months
+  var totalMonths = Object.keys(uniqueMonths).length;
+
+  return totalMonths;
+}
+
+// Calculate the total number of months in the dataset
+var totalMonthsInDataset = calculateTotalMonths(finances);
+
+// Output the total number of months
+console.log("Total number of months in the dataset:", totalMonthsInDataset);
