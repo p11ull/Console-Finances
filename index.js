@@ -111,3 +111,21 @@ var totalMonthsInDataset = calculateTotalMonths(finances);
 
 // Output the total number of months
 console.log("Total number of months in the dataset:", totalMonthsInDataset);
+
+// Function to calculate net total Profit/Losses
+function calculateNetProfitLoss(data) {
+  var netTotal = 0;
+
+  // Loop through each entry in the dataset
+  data.forEach(function(entry) {
+      netTotal += entry[1]; // Add the Profit/Loss to the netTotal
+  });
+
+  return netTotal;
+}
+
+// Calculate the net total Profit/Losses
+var netTotalProfitLoss = calculateNetProfitLoss(finances);
+
+// Output the net total Profit/Losses
+console.log("Net total Profit/Losses over the entire period:", netTotalProfitLoss);
