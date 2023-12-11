@@ -42,6 +42,8 @@ Once deployed the application can be viewed in a traditional desktop web browser
 
 ![Alt text](image.png)
 
+https://github.com/p11ull/Console-Finances.git
+
 ## Credits
 
 Collaborators on this project included instructional staff.
